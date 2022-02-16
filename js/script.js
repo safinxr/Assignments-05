@@ -11,21 +11,21 @@ function expenses(){
     document.getElementById("total-expenses").innerText = totalExpenses;
     return totalExpenses;
 }
-function balance(){
-    const balance = - totalExpenses;
-    document.getElementById("balance").innerText = balance;
-    return balance; 
-}
     
 document.getElementById("Calculate-btn").addEventListener('click', function(){
     const incomeInput = income();
     const totalExpenses =expenses();
-    
-       
+    const balance =incomeInput - totalExpenses;
+    document.getElementById("balance").innerText = balance;
+    return balance;    
 })
 document.getElementById("saveing").addEventListener('click', function(){
     const incomeInput = income();
+    const totalExpenses =expenses();
     const saverate =document.getElementById("saverate").value;
     const saveingAmount = incomeInput * parseFloat(saverate)/100 ;
     document.getElementById("saveing-amount").innerText = saveingAmount;
+    const remainingBalance = incomeInput - totalExpenses -saveingAmount;
+    document.getElementById("remaining-balance").innerText = remainingBalance;
+
 })

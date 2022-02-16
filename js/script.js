@@ -1,7 +1,12 @@
 function income(){
-    const input = document.getElementById("income-input").value;
-    const incomeInput =parseFloat(input);
-    return incomeInput
+    const input = document.getElementById("income-input");
+    const incomeInput =parseFloat(input.value);
+    if(incomeInput <0){
+        console.log("gg");
+    }
+    else{
+        return incomeInput;
+    }
 }
 function expenses(){
     const foodInput = document.getElementById("food-input").value;

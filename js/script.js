@@ -57,9 +57,14 @@ function expenses(){
 document.getElementById("Calculate-btn").addEventListener('click', function(){
     const incomeInput = income();
     const totalExpenses =expenses();
-    const balance =incomeInput - totalExpenses;
+    if(incomeInput < totalExpenses){
+        document.getElementById("eror").innerText = "Eror:Your Expenses are higher then your income.... please lower your expenses.  ";
+    }
+    else{
+        const balance =incomeInput - totalExpenses;
     document.getElementById("balance").innerText = balance;
-    return balance;    
+    return balance;
+    }  
 })
 document.getElementById("saveing").addEventListener('click', function(){
     const incomeInput = income();

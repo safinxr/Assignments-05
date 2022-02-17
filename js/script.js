@@ -12,10 +12,10 @@ function income(){
     const input = getElement("income-input");
     const incomeInput =parseFloat(input.value);
     gryBorder("income-input");
-    document.getElementById("eror").innerText = "";
-    if(incomeInput <0 || incomeInput =="" || isNaN(input.value)){
+    document.getElementById("first-eror").innerText = "";
+    if(input.value <0 || input.value =="" || isNaN(input.value)){
         redBorder("income-input");
-        document.getElementById("eror").innerText = "Eror: please enter valid income ";
+        document.getElementById("first-eror").innerText = "Eror: please enter valid income ";
         input.value ="";
     }
     else{  
@@ -33,17 +33,17 @@ function expenses(){
     if(foodInput.value <0 || foodInput.value =="" || isNaN(foodInput.value)){
         redBorder("food-input");
         document.getElementById("eror").innerText = "Eror: please enter valid food expenses ";
-        input.value ="";
+        foodInput.value ="";
     }
     if(rentInput.value <0 || rentInput.value =="" || isNaN(rentInput.value)){
         redBorder("rent-input");
         document.getElementById("eror").innerText = "Eror: please enter valid rent expenses ";
-        input.value ="";
+        rentInput.value ="";
     }
     if(clothesInput.value <0 || clothesInput.value =="" || isNaN(clothesInput.value)){
         redBorder("clothes-input");
         document.getElementById("eror").innerText = "Eror: please enter valid clothes expenses ";
-        input.value ="";
+        clothesInput.value ="";
     }
     
     else{  

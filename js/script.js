@@ -72,7 +72,15 @@ document.getElementById("saveing").addEventListener('click', function(){
     const saverate =document.getElementById("saverate").value;
     const saveingAmount = incomeInput * parseFloat(saverate)/100 ;
     document.getElementById("saveing-amount").innerText = saveingAmount;
-    const remainingBalance = incomeInput - totalExpenses -saveingAmount;
-    document.getElementById("remaining-balance").innerText = remainingBalance;
+    const balance = incomeInput - totalExpenses;
+    document.getElementById("second-eror").innerText = "";
+    if(balance < saveingAmount){
+        document.getElementById("second-eror").innerText = "Eror:Your dont have sufficient balance for saveing. Start working hard and earn more. ";
+    }
+    else{
+        const remainingBalance = balance - saveingAmount;
+        document.getElementById("remaining-balance").innerText = remainingBalance;
+    }
+    
 
 })

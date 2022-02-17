@@ -69,8 +69,15 @@ document.getElementById("Calculate-btn").addEventListener('click', function(){
 document.getElementById("saveing").addEventListener('click', function(){
     const incomeInput = income();
     const totalExpenses =expenses();
-    const saverate =document.getElementById("saverate").value;
-    const saveingAmount = incomeInput * parseFloat(saverate)/100 ;
+    const saverate =document.getElementById("saverate");
+    gryBorder("saverate");  
+    if(saverate.value <0 || saverate.value =="" || isNaN(saverate.value)){
+        redBorder("saverate");
+        document.getElementById("second-eror").innerText = "Eror: please enter valid seaving reat.. ";
+        saverate.value ="";
+    }
+    else{
+        const saveingAmount = incomeInput * parseFloat(saverate.value)/100 ;
     document.getElementById("saveing-amount").innerText = saveingAmount;
     const balance = incomeInput - totalExpenses;
     document.getElementById("second-eror").innerText = "";
@@ -81,6 +88,8 @@ document.getElementById("saveing").addEventListener('click', function(){
         const remainingBalance = balance - saveingAmount;
         document.getElementById("remaining-balance").innerText = remainingBalance;
     }
+    }
+    
     
 
 })
